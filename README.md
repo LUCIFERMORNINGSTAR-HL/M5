@@ -12,16 +12,16 @@ Write a C program to convert a 23.65 into 25 using pointer
 #include <stdio.h>
 
 int main() {
-    float num = 23.65;
-    float *ptr = &num;
+    // Step 1: Declare a double variable
+    double num = 23.65;
 
-    // Output original value
-    printf("Original value: %.2f\n", num);
+    // Step 2: Declare a pointer to double and point to the variable
+    double *ptr = &num;
 
-    // Modify value using pointer
-    *ptr = 25;
+    // Step 3: Use the pointer to modify the value to 25.0
+    *ptr = 25.0;
 
-    // Output modified value
+    // Step 4: Print the modified value
     printf("Modified value: %.2f\n", num);
 
     return 0;
@@ -163,29 +163,37 @@ Write C program for the below pyramid string pattern. Enter a string: PROGRAM En
 
 int main() {
     char str[100];
-    int rows;
+    int num_rows, i, j, k;
+    int len, midpoint, pos;
 
-    // Input string
     printf("Enter a string: ");
     scanf("%s", str);
 
-    // Input number of rows
     printf("Enter number of rows: ");
-    scanf("%d", &rows);
+    scanf("%d", &num_rows);
 
-    // Print the pyramid pattern
-    for (int i = 1; i <= rows; i++) {
-        for (int j = 0; j < i; j++) {
-            printf("%s ", str);
+    len = strlen(str);
+    midpoint = num_rows - 1; 
+    for(i = 0; i < num_rows; i++) {
+        
+        for(j = 0; j < midpoint - i; j++) {
+            printf("  "); 
         }
+
+        for(k = 0; k <= i * 2; k++) {
+            pos = k % len;
+            printf("%c ", str[pos]);
+        }
+
         printf("\n");
     }
 
     return 0;
 }
+
 ```
  ## OUTPUT:
- ![m5 4](https://github.com/user-attachments/assets/1e83bde8-a37b-41dc-a29a-5ad892946ad5)
+![image](https://github.com/user-attachments/assets/6d88c11e-da1c-49ab-8d41-edfb1e1221c2)
  
 ## RESULT:
 
@@ -250,5 +258,3 @@ int main() {
 ## RESULT
 
 Thus the C program to read and display an array of any 6 integer elements using pointer has been executed
-
-
